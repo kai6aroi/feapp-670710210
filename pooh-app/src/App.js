@@ -1,32 +1,28 @@
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './Navbar';
-import Footer from './Footer';
 import Home from './pages/Home';
 import Movies from './pages/Movies';
 import About from './pages/About';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import MovieDetail from './pages/MovieDetail';
 import NotFound from './pages/NotFound';
-import Playground from './pages/Playground'; // 👈 1. import เพิ่มตรงนี้
 
 function App() {
-  return (
-    <div className="flex min-h-screen flex-col bg-slate-50">
-      <Navbar />
-
-      <main className="flex-1">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:id" element={<MovieDetail />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/playground" element={<Playground />} /> {/* 👈 2. เพิ่ม Route ตรงนี้ */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
-
-      <Footer />
-    </div>
-  );
+    return (
+        <div className="flex min-h-screen flex-col bg-slate-50">
+            <Navbar />
+            <main className="flex-1">
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/movies" element={<Movies />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/movies/:id" element={<MovieDetail />} />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            </main>
+            <Footer />
+        </div>
+    );
 }
 
 export default App;
